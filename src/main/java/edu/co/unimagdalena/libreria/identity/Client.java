@@ -24,11 +24,14 @@ public class Client {
 	private String name;
 	private String lastName;
 	private String address;
-	private String city;
 	private int areaCode;
 	private long phone;
 	private String email;
 	private String shippingPreference;
+	
+	@ManyToOne
+	@JoinColumn(name = "city_id")
+	private City city;
 	
 	
 	@ManyToOne
@@ -51,7 +54,7 @@ public class Client {
 
 
 
-	public Client(long id, String username, String password, String name, String lastName, String address, String city,
+	public Client(long id, String username, String password, String name, String lastName, String address, City city,
 			int areaCode, long phone, String email, String shippingPreference, Speciality speciality,
 			CreditCard creditCard, ArrayList<Order> orders) {
 		super();
@@ -141,10 +144,10 @@ public class Client {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getCity() {
+	public City getCity() {
 		return city;
 	}
-	public void setCity(String city) {
+	public void setCity(City city) {
 		this.city = city;
 	}
 	public int getAreaCode() {

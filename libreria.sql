@@ -25,6 +25,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `libreria`.`city`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `libreria`.`city` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `libreria`.`Client`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `libreria`.`Client` (
@@ -34,18 +44,24 @@ CREATE TABLE IF NOT EXISTS `libreria`.`Client` (
   `name` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
-  `city` VARCHAR(45) NOT NULL,
   `areaCode` INT NULL,
   `phone` INT NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `shippingPreference` VARCHAR(45) NULL,
   `speciality_id` INT NULL,
+  `city_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_Client_specialty1_idx` (`speciality_id` ASC),
+  INDEX `fk_Client_city1_idx` (`city_id` ASC),
   CONSTRAINT `fk_Client_specialty1`
     FOREIGN KEY (`speciality_id`)
     REFERENCES `libreria`.`speciality` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Client_city1`
+    FOREIGN KEY (`city_id`)
+    REFERENCES `libreria`.`city` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
