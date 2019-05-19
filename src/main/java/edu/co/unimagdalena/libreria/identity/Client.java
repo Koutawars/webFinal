@@ -1,9 +1,15 @@
 package edu.co.unimagdalena.libreria.identity;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,16 +29,31 @@ public class Client {
 	private long phone;
 	private String email;
 	private String shippingPreference;
-	private long specialty_id;
 	
 	
+	@ManyToOne
+	@JoinColumn(name = "speciality_id")
+	private Speciality speciality;
 	
+	
+    @OneToOne(mappedBy = "client")
+	@JoinColumn
+    private CreditCard creditCard;
+    
+    @OneToMany(mappedBy = "client")
+	@JoinColumn
+    private ArrayList<Order> orders;
+    
+    
 	Client(){
 		
 	}
-	
+
+
+
 	public Client(long id, String username, String password, String name, String lastName, String address, String city,
-			int areaCode, long phone, String email, String shippingPreference, long specialty_id) {
+			int areaCode, long phone, String email, String shippingPreference, Speciality speciality,
+			CreditCard creditCard, ArrayList<Order> orders) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -45,10 +66,44 @@ public class Client {
 		this.phone = phone;
 		this.email = email;
 		this.shippingPreference = shippingPreference;
-		this.specialty_id = specialty_id;
+		this.speciality = speciality;
+		this.creditCard = creditCard;
+		this.orders = orders;
 	}
 
 
+
+	public Speciality getSpeciality() {
+		return speciality;
+	}
+
+
+
+	public void setSpeciality(Speciality speciality) {
+		this.speciality = speciality;
+	}
+
+
+
+	public ArrayList<Order> getOrders() {
+		return orders;
+	}
+
+
+
+	public void setOrders(ArrayList<Order> orders) {
+		this.orders = orders;
+	}
+
+
+
+	public CreditCard getCreditCard() {
+		return creditCard;
+	}
+
+	public void setCreditCard(CreditCard creditCard) {
+		this.creditCard = creditCard;
+	}
 
 	public long getId() {
 		return id;
@@ -116,11 +171,11 @@ public class Client {
 	public void setShippingPreference(String shippingPreference) {
 		this.shippingPreference = shippingPreference;
 	}
-	public long getSpecialty_id() {
-		return specialty_id;
+	public Speciality getSpecialty_id() {
+		return speciality;
 	}
-	public void setSpecialty_id(long specialty_id) {
-		this.specialty_id = specialty_id;
+	public void setSpecialty_id(Speciality specialty_id) {
+		this.speciality = specialty_id;
 	}
 	
 	
