@@ -20,7 +20,7 @@ public class Book {
 	private long id;
 	private String name;
 	private String description;
-	private String ISBN;
+	private String isbn;
 	private long price;
 	private int stock;
 	
@@ -48,13 +48,13 @@ public class Book {
 		
 	}
 	
-	public Book(long id, String name, String description, String iSBN, long price, int stock, Author author,
+	public Book(long id, String name, String description, String isbn, long price, int stock, Author author,
 			Editorial editorial, Set<Category> categorys, Speciality speciality) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		ISBN = iSBN;
+		this.isbn = isbn;
 		this.price = price;
 		this.stock = stock;
 		this.author = author;
@@ -87,12 +87,12 @@ public class Book {
 		this.description = description;
 	}
 
-	public String getISBN() {
-		return ISBN;
+	public String getIsbn() {
+		return isbn;
 	}
 
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public long getPrice() {
