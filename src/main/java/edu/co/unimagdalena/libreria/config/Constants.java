@@ -1,4 +1,4 @@
-package edu.co.unimagdalena.libreria.security;
+package edu.co.unimagdalena.libreria.config;
 
 public class Constants {
 	// Spring Security
@@ -6,6 +6,7 @@ public class Constants {
 	public static final String LOGIN_URL = "/login";
 	public static final String HEADER_AUTHORIZACION_KEY = "Authorization";
 	public static final String TOKEN_BEARER_PREFIX = "Bearer ";
+	public static final String ROUTES_ACCESS_REGEX = "((/css/|/js/|/user|/user/).*|/favicon.ico|/login)";
 
 	// JWT
 

@@ -6,17 +6,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="creditCard")
+@Table(name="creditcard")
 public class CreditCard {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+    @OneToOne
+    private Client client;
+    
 	private String number;
 	private String expiration;
 	private String ccv;
+
 	
 	@ManyToOne
 	@JoinColumn(name = "type_id")
@@ -26,13 +32,14 @@ public class CreditCard {
 		
 	}
 	
-	public CreditCard(long id, String number, String expiration, String ccv, Type type) {
+	public CreditCard(long id, String number, String expiration, String ccv, Type type, Client client) {
 		super();
 		this.id = id;
 		this.number = number;
 		this.expiration = expiration;
 		this.ccv = ccv;
 		this.type = type;
+		this.client = client;
 	}
 
 
@@ -67,6 +74,14 @@ public class CreditCard {
 	}
 	public void setCcv(String ccv) {
 		this.ccv = ccv;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
 	

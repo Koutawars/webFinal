@@ -9,25 +9,31 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="orderDetails")
+@Table(name="orderdetails")
 public class OrderDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private int amount;
 	
+	
 	@ManyToOne
-	private Order order;
+	@JoinColumn(name = "order_id")
+	private Orden order;
 	
 	@ManyToOne
 	@JoinColumn(name = "book_id")
 	private Book book;
+
+
+	
 	
 	public OrderDetails() {
 		
 	}
+	
 
-	public OrderDetails(long id, int amount, Order order, Book book) {
+	public OrderDetails(long id, int amount, Orden order, Book book) {
 		super();
 		this.id = id;
 		this.amount = amount;
@@ -51,13 +57,16 @@ public class OrderDetails {
 		this.amount = amount;
 	}
 
-	public Order getOrder() {
+
+	public Orden getOrder() {
 		return order;
 	}
 
-	public void setOrder(Order order) {
+
+	public void setOrder(Orden order) {
 		this.order = order;
 	}
+
 
 	public Book getBook() {
 		return book;

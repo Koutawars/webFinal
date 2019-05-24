@@ -1,6 +1,6 @@
 package edu.co.unimagdalena.libreria.identity;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,11 +34,11 @@ public class Book {
 	
 	@ManyToMany
 	@JoinTable(
-			name="libro_category", 
+			name="book_category", 
 			joinColumns=@JoinColumn(name="book_id"), 
 			inverseJoinColumns=@JoinColumn(name="category_id")
 			)
-	private ArrayList<Category> categorys;
+	private Set<Category> categorys;
 	
 	@ManyToOne
 	@JoinColumn(name = "speciality_id")
@@ -49,7 +49,7 @@ public class Book {
 	}
 	
 	public Book(long id, String name, String description, String iSBN, long price, int stock, Author author,
-			Editorial editorial, ArrayList<Category> categorys, Speciality speciality) {
+			Editorial editorial, Set<Category> categorys, Speciality speciality) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -127,11 +127,11 @@ public class Book {
 		this.editorial = editorial;
 	}
 
-	public ArrayList<Category> getCategory() {
+	public Set<Category> getCategory() {
 		return categorys;
 	}
 
-	public void setCategory(ArrayList<Category> categorys) {
+	public void setCategory(Set<Category> categorys) {
 		this.categorys = categorys;
 	}
 

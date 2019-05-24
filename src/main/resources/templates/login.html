@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Iniciar sesión</title>
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+   <meta content="text/html;" http-equiv="content-type" charset="utf-8">
 </head>
+
 <body>
-	<div class="container">
-		<h1>Hola pero mas bonito XD</h1>
-	</div>
-	<script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/login.js"></script>
+  <main>
+    <center>
+      <h1 class="indigo-text">BookStore Unimag</h1>
+      <h5 class="indigo-text">Por Favor, Ingresa tu cuenta</h5>
+
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+          <form class="col s12" method="post">
+            <div class='row'>
+              	<div class='input-field col s12'>
+                	<input class='validate' type='text' name='username' id='username' />
+                	<label for='username'>Ingresa nombre de usuario</label>
+            	</div>
+            </div>
+
+            <div class='row'>
+              	<div class='input-field col s12'>
+                	<input class='validate' type='password' name='password' id='password' />
+                	<label for='password'>Ingresa contraseña</label>
+              	</div>
+              	<label style='float: right;'>
+					<a class='pink-text' href='#!'><b>¿Olvidaste la contraseña?</b></a>
+				</label>
+            </div>
+            <br />
+              <div class='row'>
+                <button id="login" type='submit' name='btn_login' class='center col s12 btn btn-large waves-effect indigo'>Iniciar Sesión</button>
+              </div>
+          </form>
+        </div>
+      </div>
+      <a href="/signup">Crea una Cuenta</a>
+    </center>
+  </main>
+
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/js/login.js"></script>
 </body>
+
 </html>

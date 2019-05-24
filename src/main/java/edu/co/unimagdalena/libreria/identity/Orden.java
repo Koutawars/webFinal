@@ -1,6 +1,6 @@
 package edu.co.unimagdalena.libreria.identity;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,9 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="order")
-public class Order {
+@Table(name="orden")
+public class Orden {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -19,13 +20,13 @@ public class Order {
 	private long total;
 	
 	@OneToMany(mappedBy="order")
-	private ArrayList<OrderDetails> details;
+	private Set<OrderDetails> details;
 	
-	public Order() {
+	public Orden() {
 		
 	}
 	
-	public Order(long id, String date, long total, ArrayList<OrderDetails> details) {
+	public Orden(long id, String date, long total, Set<OrderDetails> details) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -57,11 +58,11 @@ public class Order {
 		this.total = total;
 	}
 
-	public ArrayList<OrderDetails> getDetails() {
+	public Set<OrderDetails> getDetails() {
 		return details;
 	}
 
-	public void setDetails(ArrayList<OrderDetails> details) {
+	public void setDetails(Set<OrderDetails> details) {
 		this.details = details;
 	}
 	
