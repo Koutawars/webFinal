@@ -17,7 +17,7 @@ $(document).ready(function(){
 					localStorage.setItem("token", token);
 					window.location.replace("/user");
 				}else{
-					console.log("error en identificar");
+					M.toast({html: 'No se encuentra el usuario con esa cuenta y contraeña.'});
 				}
 			},
 			error: function(jqXHR , status, e){

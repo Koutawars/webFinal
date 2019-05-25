@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	    <title>Agregar tarjeta</title>
+	</head>
+	<body>
+	  <nav class="indigo">
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo">BookStore</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	      	<li><a href="/user/">Omitir</a></li>
+	        <li><a id="logout" href="/logout">cerrar sesión</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+	  <div class="section"></div>
+	  <div class="container">
+	    <div class="center">
+	      <img width="200" src ="/img/tarjeta.png">
+	    </div>
+	    <form>
+	      <div class="row">
+	    	<div class="input-field col s6">
+	       		<select id="type">
+	        		<option value="" disabled selected>Elige tipo de tarjeta</option>
+					<th:block th:each="type : ${types}">
+           				<option th:value="${type.id}" th:text="${type.name}"></option>
+					</th:block>
+	       		</select>
+	       		<label>Ciudad</label>
+	    	</div>
+	        <div class="input-field col s6">
+	          <input id="number" type="number" class="validate">
+	          <label for="number">Número</label>
+	        </div>
+	        <div class="col s6">
+		        <div class="row">
+	        	  <div class="input-field col s6">
+		          	<input id="mounth" type="number" class="validate">
+		          	<label for="mounth">Mes de vencimiento</label>
+		          </div>
+	        	  <div class="input-field col s6">
+		          	<input id="year" type="number" class="validate">
+		          	<label for="year">Año de vencimiento</label>
+		          </div>
+		       </div>
+		    </div>
+	        <div class="input-field col s6">
+	          <input id="ccv" type="number" class="validate">
+	          <label for="ccv">CCV</label>
+	        </div>
+	      </div>
+	      <div class="row">
+		      <div class ="center">
+		        <button id="agregar" class="hoverable btn waves-effect waves-light indigo" type="submit" name="action">Agregar Tarjeta</button>
+		      </div>
+	      </div>
+	    </form>
+	  </div>
+	  <script type="text/javascript" src="/js/jquery.min.js"></script>
+	  <script type="text/javascript" src="/js/materialize.min.js"></script>
+	  <script type="text/javascript" src="/js/addcard.js"></script>
+	  <script type="text/javascript" src="/js/logout.js"></script>
+  </body>
+</html>

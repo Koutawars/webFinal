@@ -26,9 +26,4 @@ public class ControllerMain {
 	String getLogin() {
 		return "login";
 	}
-	
-	@GetMapping("/user")
-	String getDashboard() {
-		return "dashboard";
-	}
 }
