@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name="client")
@@ -39,6 +41,7 @@ public class Client {
 	@ManyToOne
 	private Speciality speciality;
 	
+	@JsonIgnoreProperties("client")
     @OneToOne(mappedBy = "client")
     private CreditCard creditCard;
     

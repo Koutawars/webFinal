@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="creditcard")
 public class CreditCard {
@@ -16,6 +18,7 @@ public class CreditCard {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonIgnoreProperties("creditCard")
     @OneToOne
     private Client client;
     

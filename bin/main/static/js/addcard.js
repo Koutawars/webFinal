@@ -30,10 +30,9 @@ $(document).ready(function(){
 				datatype: "JSON",
 				success: 
 					function(data, status, jqXHR){
-						/*
 						if(data.number == number){
 							window.location.replace("/dashboard");
-						}*/
+						}
 						console.log(data);
 					},
 				error: 
