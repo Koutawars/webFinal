@@ -48,8 +48,19 @@ public class Client {
 	public Client(){
 		
 	}
-
 	
+	
+
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name
+				+ ", lastname=" + lastname + ", address=" + address + ", areacode=" + areacode + ", phone=" + phone
+				+ ", email=" + email + ", shippingpreference=" + shippingpreference + ", city=" + city + ", speciality="
+				+ speciality + ", creditCard=" + creditCard + ", orders=" + orders + "]";
+	}
+
+
+
 	public Client(long id, String username, String password, String name, String lastname, String address, City city,
 			Integer areacode, long phone, String email, String shippingpreference, Speciality speciality,
 			CreditCard creditCard, Set<Orden> orders) {

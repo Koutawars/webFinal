@@ -1,21 +1,96 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registrarse</title>
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-   <meta content="text/html;" http-equiv="content-type" charset="utf-8">
-</head>
-<body>
-	<div class="container">
-		<h1>Hola pero mas bonito XD</h1>
-	</div>
-	<script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/materialize.min.js"></script>
-    <script src="js/signup.js"></script>
-</body>
-</html>
+<html lang="es"  xmlns:th="http://www.thymeleaf.org" >
+    <head>
+   		<meta content="text/html;" http-equiv="content-type" charset="utf-8">
+    	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    	<link rel="stylesheet" type="text/css" href="css/signup.css">
+    	<title>Registrarse</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+      </head>
+    <body>
+    	<div class="container">
+    		<div class="center">
+    			<h1 class="indigo-text">BookStore Unimag</h1>
+    			<div class="section"></div>
+    		</div>
+    		<form>
+    			<div class="row">
+		        	<div class="input-field col s6">
+		        		<input id="name" type="text" class="validate">
+		        		<label for="name">Nombre</label>
+		        	</div>
+		        	<div class="input-field col s6">
+		          		<input id="lastname" type="text" class="validate">
+		          		<label for="lastname">Apellido</label>
+		        	</div>
+		        	<div class="input-field col s6">
+		          		<input id="username" type="text" class="validate">
+		          		<label for="username">Usuario</label>
+		        	</div>
+		        	<div class="input-field col s6">
+		          		<input id="email" type="email" class="validate">
+		          		<label for="email">Correo</label>
+		        	</div>
+		        	<div class="input-field col s6">
+		          		<input id="password" type="password" class="validate">
+		          		<label for="password">contraseña</label>
+		        	</div>
+		        	<div class="input-field col s6">
+		          		<input id="password2" type="password" class="validate">
+		          		<label for="password2">repetir contraseña</label>
+		        	</div>
+		      		<div class="input-field col s6">
+		        		<input id="phone" type="number" class="validate">
+		        		<label for="phone">Telefono</label>
+		      		</div>
+		      		<div class="input-field col s6 ">
+		        		<input id="areacode" type="number" class="validate">
+		        		<label for="areacode">Código Postal</label>
+		      		</div>
+			    	<div class="input-field col s6">
+			       		<select id="city">
+			        		<option value="" disabled selected>elige tu ciudad</option>
+			        		
+  							<th:block th:each="city : ${citys}">
+			            		<option th:value="${city.id}" th:text="${city.name}"></option>
+  							</th:block>
+			       		</select>
+			       		<label>Ciudad</label>
+			    	</div>
+					<div class="input-field col s6">
+			       		<input id="address" type="text" class="validate">
+			       		<label for="address">dirección</label>
+			    	</div>
+			    	<div class="input-field col s6">
+			       		<select id = "speciality">
+			        		<option value="" disabled selected>Elige tu especialidad</option>
+			        		<option value="" >Ninguna</option>
+			        		
+  							<th:block th:each="speciality : ${specialitys}">
+			            		<option th:value="${speciality.id}" th:text="${speciality.name}"></option>
+  							</th:block>
+			       		</select>
+			       		<label>Especialidad</label>
+			    	</div>
+			    	<div class="input-field col s6">
+			       		<select id ="forma">
+			        		<option value="" disabled selected>Elige tu forma de envio preferida</option>
+			        		<option value="aire" >Por aire</option>
+			        		<option value="tierra" >Por tierra</option>
+			       		</select>
+			       		<label>Forma de envío</label>
+			    	</div>
+			    	<div class="input-field col s12">
+			    		<a id="registrar" class="waves-effect  indigo waves-light btn right hoverable"><i class="large material-icons right">done</i>Registrar</a>
+    				</div>
+    			</div>
+    		</form>
+   		</div>
+		<script src="js/jquery.min.js"></script>
+	    <script src="js/materialize.min.js"></script>
+	    <script src="js/signup.js"></script>
+  	</body>
+  </html>

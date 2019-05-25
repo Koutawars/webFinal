@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.cors().and()
-			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL, "/logout").permitAll()
+			.authorizeRequests().antMatchers(HttpMethod.POST, LOGIN_URL, "/logout", "/signup").permitAll()
 			.antMatchers(HttpMethod.GET, "/signup","/favicon.ico", "/robots.txt").permitAll()
 			.regexMatchers(HttpMethod.GET, ROUTES_ACCESS_REGEX).permitAll()
 			.anyRequest().authenticated().and()
