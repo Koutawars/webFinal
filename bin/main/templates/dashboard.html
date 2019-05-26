@@ -1,22 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
-   <meta content="text/html;" http-equiv="content-type" charset="utf-8">
-</head>
-<body>
-  <main>
-    <center>
-      <h1><span>Dashboard de <span id="username"></span></span></h1>
-      <a href="#" id="logout">salir</a>
-    </center>
-  </main>
+	<head>
+	  <meta content="text/html;" http-equiv="content-type" charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
+	  <title>Dashboard</title>
+	</head>
+	
+	<body>
+	  <nav class="indigo">
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo">BookStore</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="#">Buscar</a></li>
+	        <li><a href="#">Busqueda Especializada</a></li>
+	        <li><a  id="logout" href="#">Salir</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+	  <div class="section"></div>
+	
+	  <div class="container">
+	    <div class="row">
+	    <div class="col s12">
+	    	<div class="center"><h2 id ="welcome"></h2></div>
+	    </div>
+	      <div class="col s4">
+	        <img  width="100%" src="/img/perfil.png">
+	      </div>
+	      <div class="col s8"> 
+	        <ul class="tabs ">
+	          <li class="tab col s3"><a class="indigo-text" href="#test1">Tu info</a></li>
+	          <li class="tab col s3"><a class="indigo-text" href="#test2">Carrito</a></li>
+	        </ul>
+	        <div id="test1" class="col s12 ">
+	        	<span>
+	              <h6>Usuario: <span class="indigo-text" id="username"></span></h6>
+	            </span>
+	          <span>
+	              <h6>Nombre: <span class="indigo-text" id="name"></span></h6>
+	            </span>
+	          <span>
+	              <h6>Apellido: <span class="indigo-text" id="lastname"></span></h6>
+	            </span>
+	          <span>
+	              <h6>Correo: <span class="indigo-text" id="email"></span></h6>
+	            </span>
+	          <span>
+	              <h6>Dirección: <span class="indigo-text" id="address"></span></h6>
+	            </span>
+	          <span>
+	              <h6>Ciudad: <span class="indigo-text" id="city"></span></h6>
+	            </span>
+	          <span>
+	              <h6>código Postal: <span class="indigo-text" id="areacode"></span></h6>
+	            </span>
+	          <span>
+	              <h6>Telefono: <span class="indigo-text" id="phone"></span></h6>
+	            </span>
+	          <span>
+	              <h6>Preferencia de envío: <span class="indigo-text" id="shippingpreference"></span></h6>
+	            </span>
+	         	<span>
+	              <h6>Especialidad: <span class="indigo-text" id="speciality">Ninguna</span></h6>
+	            </span>
+	         	<span>
+	              <h6>Tarjeta: <span class="indigo-text" id="creditCard"></span></h6>
+	            </span>
+	            
+	              <!-- Modal Trigger -->
+	              <div class="right">
+	              	<a class="waves-effect waves-light btn modal-trigger indigo" href="#modal1">Cambiar datos</a>
+	         	  </div>
+	         </div>
+	              <!-- Modal Structure -->
+	              <div id="modal1" class="modal">
+	                <div class="modal-content">
+	                  <h4>Modificar Datos</h4>
+	                    <form class="col s12">
+	                      <div class="row">
+	                        <div class="input-field hoverable col s4">
+	                          <input id="nameEdit" type="text" class="validate">
+	                          <label for="nameEdit">Nombre</label>
+	                        </div>
+	                        <div class="input-field hoverable col s4">
+	                          <input id="lastnameEdit" type="text" class="validate">
+	                          <label for="lastnameEdit">Apellido</label>
+	                        </div>
+	                      </div>
+	                      <div class="row">
+	                        <div class="input-field hoverable col s4">
+	
+	                          <input id="usernameEdit" type="text" class="validate">
+	                          <label for="usernameEdit">Usuario</label>
+	                        </div>
+	                        <div class="input-field hoverable col s4">
+	
+	                          <input id="emailEdit" type="email" class="validate">
+	                          <label for="emailEdit">Correo</label>
+	                        </div>
+	                      </div>
+	                      <div class="row">
+	                        <div class="input-field hoverable col s4">
+	
+	                          <input id="passwordEdit" type="password" class="validate">
+	                          <label for="passwordEdit">contraseña</label>
+	                        </div>
+	                        <div class="input-field hoverable col s4">
+	
+	                          <input id="password2Edit" type="password" class="validate">
+	                          <label for="password2Edit">repetir contraseña</label>
+	                        </div>
+	                      </div>
+	                      <div class="row">
+	                        <div class="input-field col s4">
+	
+	                          <input id="phoneEdit" type="tel" class="validate">
+	                          <label for="phoneEdit">Telefono</label>
+	                        </div>
+	                        <div class="input-field col s4">
+	
+	                          <input id="areaCodeEdit" type="tel" class="validate">
+	                          <label for="areaCodeEdit">Codigo Postal</label>
+	                        </div>
+	                      </div>
+                          <div class="row">
+                            <div class="input-field col s4">
 
-  <script type="text/javascript" src="/js/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/materialize.min.js"></script>
-  <script type="text/javascript" src="/js/dashboard.js"></script>
-  <script type="text/javascript" src="/js/logout.js"></script>
-</body>
+                              <input id="cityEdit" type="text" class="validate">
+                              <label for="cityEdit">Ciudad</label>
+                            </div>
+                            <div class="input-field col s4">
 
+                              <input id="addressEdit" type="text" class="validate">
+                              <label for="addressEdit">dirección</label>
+                            </div>
+                          </div>
+	                    </form>
+	                </div>
+	                <div class="modal-footer">
+	                  <a href="#!" class="modal-close waves-effect waves-red btn-flat">Disagree</a>
+	                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+	                </div>
+	              </div>
+	            </div>
+	        </div>
+	        <div id="test2" class="col s5">
+	            <h2 class="header">Bosque Funebre</h2>
+	            <div class="card horizontal">
+	              <div class="card-image">
+	                <img src="https://lorempixel.com/100/190/nature/6">
+	              </div>
+	              <div class="card-stacked">
+	                <div class="card-content">
+	                  <p>*DESCRIPCION DEL LIBRO*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
+	                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
+	                    in elit interdum, accumsan est et, consectetur justo.</p>
+	                </div>
+	                <div class="card-action">
+	                    <a href="#" class="right indigo-text">Retirar del carrito</a>
+	                  </div>
+	              </div>
+	            </div>
+	            <div class="right">
+	              <button class="btn waves-effect waves-light indigo"  type="button" name="action">Confirmar
+	              </button>
+	            </div>
+	          </div>
+	        </div>
+	  <script type="text/javascript" src="/js/jquery.min.js"></script>
+	  <script type="text/javascript" src="/js/materialize.min.js"></script>
+	  <script type="text/javascript" src="/js/dashboard.js"></script>
+	  <script type="text/javascript" src="/js/logout.js"></script>
+	
+	</body>
 </html>

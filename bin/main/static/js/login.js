@@ -15,7 +15,7 @@ $(document).ready(function(){
 				let token = jqXHR.getResponseHeader("Authorization");
 				if(token != null){
 					localStorage.setItem("token", token);
-					window.location.replace("/user");
+					window.location.replace("/user?mensaje=true");
 				}else{
 					M.toast({html: 'No se encuentra el usuario con esa cuenta y contraeña.'});
 				}
