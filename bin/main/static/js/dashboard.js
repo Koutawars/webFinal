@@ -4,6 +4,7 @@ $(document).ready(function(){
 	console.log("cargando info...");
     $('.tabs').tabs();
     $('.modal').modal();
+    $('select').formSelect();
 	$.ajax({
 		method: "GET",
 		url: "/api/client",
@@ -26,8 +27,8 @@ $(document).ready(function(){
 				}
 			}
 	}).then(function(){
-		$("#name").text(usuario.name);
-		$("#lastname").text(usuario.lastname);
+		$(".name").text(usuario.name);
+		$(".lastname").text(usuario.lastname);
 		$("#email").text(usuario.email);
 		$("#address").text(usuario.address);
 		$("#city").text(usuario.city.name);
@@ -37,7 +38,7 @@ $(document).ready(function(){
 		$("#shippingpreference").text(usuario.shippingpreference);
 		if(usuario.speciality) $("#speciality").text(usuario.speciality);
 		if(usuario.creditCard) $("#creditCard").html("Tiene una tarjeta. <a class ='indigo btn waves-effect waves-light' href='/user/addcard'>Cambiar</a>");
-		else $("#creditCard").text("No tiene una tarjeta. <a class ='indigo btn waves-effect waves-light' href='/user/addcard'>Agregar</a>");
+		else $("#creditCard").html("No tiene una tarjeta. <a class ='indigo btn waves-effect waves-light' href='/user/addcard'>Agregar</a>");
 		if($.urlParam('mensaje')){
 			$("#welcome").text("¡Bienvenido "+ usuario.name +"!");
 		}
@@ -47,5 +48,6 @@ $(document).ready(function(){
 
 $.urlParam = function(name){
 	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	return results[1] || 0;
+	if(results) return results[1] || 0;
+	else return 0;
 }
