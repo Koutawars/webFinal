@@ -49,7 +49,7 @@ $(document).ready(function(){
 				contentType: "application/json",
 				datatype: "JSON",
 				success: function(data, status, jqXHR){
-					if(data.username == username) window.location.replace("/user");
+					if(data.username == username) window.location.replace("/login");
 				},
 				error: function(jqXHR , status, e){
 					M.toast({html: 'Error al registrar status: '+jqXHR.status});

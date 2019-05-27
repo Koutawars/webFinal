@@ -40,65 +40,35 @@ INSERT INTO `editorial` (`id`, `name`) VALUES (NULL, 'McGrawnHill');
 INSERT INTO `editorial` (`id`, `name`) VALUES (NULL, 'Universidad del Magdalena');
 INSERT INTO `editorial` (`id`, `name`) VALUES (NULL, 'Quijote');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Necromicon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 90-12345', '200000', '20', '1', '1', '1');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Necromicon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 90-12345', '200000', '20', '1', '1', '1');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Lord of the Rings', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 91-123456', '150000', '15', '2', '2','2');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Lord of the Rings', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 91-123456', '150000', '15', '2', '2','2');
                     
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Harry Potter', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 92-1234567', '250000', '40', '3', '3','3');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Harry Potter', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 92-1234567', '250000', '40', '3', '3','3');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Game of Throne', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 93-12345678', '100000', '30', '4', '4','4');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Game of Throne', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet loremelit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donecin elit interdum, accumsan est et, consectetur justo.', 'ISBN 93-12345678', '100000', '30', '4', '4','4');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Shingeky no Kyojin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 94-123456789', '50000', '70', '5', '5','5');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Shingeky no Kyojin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet loremelit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donecin elit interdum, accumsan est et, consectetur justo.', 'ISBN 94-123456789', '50000', '70', '5', '5','5');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Tales of Cthulhu', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 90-1234511', '230000', '30', '1', '1', '1');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Tales of Cthulhu', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet loremelit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donecin elit interdum, accumsan est et, consectetur justo.', 'ISBN 90-1234511', '230000', '30', '1', '1', '1');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'The Hobbit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 91-12345611', '180000', '46', '2', '2','2');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'The Hobbit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet loremelit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donecin elit interdum, accumsan est et, consectetur justo.', 'ISBN 91-12345611', '180000', '46', '2', '2','2');
                     
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Fantastic Beasts', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 92-123456711', '140000', '14', '3', '3','3');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Fantastic Beasts', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet loremelit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donecin elit interdum, accumsan est et, consectetur justo.', 'ISBN 92-123456711', '140000', '14', '3', '3','3');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'BloodMoon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 93-1234567811', '70000', '55', '4', '4','4');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'BloodMoon', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet loremelit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 93-1234567811', '70000', '55', '4', '4','4');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Dragon Ball Z', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 94-12345678911', '25000', '100', '5', '5','5');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Dragon Ball Z', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 94-12345678911', '25000', '100', '5', '5','5');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'the Rat in the Wall', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 90-1234555', '40000', '30', '1', '1', '1');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'the Rat in the Wall', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet loremelit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 90-1234555', '40000', '30', '1', '1', '1');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'The Silmarillion', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 91-12345666', '350000', '10', '2', '2','2');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'The Silmarillion', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 91-12345666', '350000', '10', '2', '2','2');
                     
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Beedle the Bard', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 92-123456777', '30000', '5', '3', '3','3');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Beedle the Bard', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 92-123456777', '30000', '5', '3', '3','3');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Fire and blood', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 93-1234567888', '180000', '80', '4', '4','4');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Fire and blood', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 93-1234567888', '180000', '80', '4', '4','4');
 
-INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Tate No Yusha', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem
-                    elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec
-                    in elit interdum, accumsan est et, consectetur justo.', 'ISBN 94-12345678999', '5000', '150', '5', '5','5');
+INSERT INTO `book` (`id`, `name`,`description`, `ISBN`,`price`, `stock`, `author_id`,`editorial_id`, `speciality_id`) VALUES (NULL, 'Tate No Yusha', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquet lorem elit, sed pulvinar mauris sagittis in. Cras fermentum egestas felis. Nam at venenatis justo. Donec in elit interdum, accumsan est et, consectetur justo.', 'ISBN 94-12345678999', '5000', '150', '5', '5','5');
 
 INSERT INTO `book_category` (`book_id`, `category_id`) VALUES ('1','1');
 INSERT INTO `book_category` (`book_id`, `category_id`) VALUES ('2','2');
