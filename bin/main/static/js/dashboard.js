@@ -2,6 +2,9 @@ var usuario;
 
 $(document).ready(function(){
 	console.log("cargando info...");
+	$('#loader').show();
+	$('#info').hide();
+	
     $('.tabs').tabs();
     $('.modal').modal();
     $('select').formSelect();
@@ -43,6 +46,8 @@ $(document).ready(function(){
 			$("#welcome").text("¡Bienvenido "+ usuario.name +"!");
 		}
 		console.log(usuario);
+		$('#loader').hide();
+		$('#info').show();
 	});
 });
 

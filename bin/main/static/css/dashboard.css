@@ -1,3 +1,7 @@
 .btn-del{
 	cursor:pointer
 }
+
+div#loader {
+    margin: 16% 0% 0% 40%;
+}
