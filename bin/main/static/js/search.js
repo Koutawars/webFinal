@@ -28,6 +28,7 @@ $(document).ready(function(){
 			if(libro.id == id) agregar = false;
 		});
 		if(agregar){
+			libro.cantidad = 1;
 			listCart[encontrar].cart.push(libro);
 			listCart = JSON.stringify(listCart);
 			localStorage.setItem("listCart", listCart);

@@ -31,7 +31,7 @@ $(document).ready(function(){
 				success: 
 					function(data, status, jqXHR){
 						if(data.number == number){
-							window.location.replace("/dashboard");
+							window.location.replace("/user");
 						}
 						console.log(data);
 					},
