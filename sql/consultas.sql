@@ -1,4 +1,6 @@
 -- Ciudad --
+INSERT INTO `type` (`id`, `name`) VALUES (NULL, 'Visa'), (NULL, 'Master Card'), (NULL, 'American Express');
+
 
 INSERT INTO `city` (`id`, `name`) VALUES (NULL, 'Leticia');
 INSERT INTO `city` (`id`, `name`) VALUES (NULL, 'Medellin');

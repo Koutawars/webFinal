@@ -30,24 +30,30 @@ $(document).ready(function(){
 				}
 			}
 	}).then(function(){
-		$(".name").text(usuario.name);
-		$(".lastname").text(usuario.lastname);
-		$("#email").text(usuario.email);
-		$("#address").text(usuario.address);
-		$("#city").text(usuario.city.name);
-		$("#areacode").text(usuario.areacode);
-		$("#username").text(usuario.username);
-		$("#phone").text(usuario.phone);
-		$("#shippingpreference").text(usuario.shippingpreference);
-		if(usuario.speciality) $("#speciality").text(usuario.speciality.name);
-		if(usuario.creditCard) $("#creditCard").html("Tiene una tarjeta. <a class ='indigo btn waves-effect waves-light' href='/user/addcard'>Cambiar</a>");
-		else $("#creditCard").html("No tiene una tarjeta. <a class ='indigo btn waves-effect waves-light' href='/user/addcard'>Agregar</a>");
-		if($.urlParam('mensaje')){
-			$("#welcome").text("¡Bienvenido "+ usuario.name +"!");
+
+		if(usuario.username){
+			$(".name").text(usuario.name);
+			$(".lastname").text(usuario.lastname);
+			$("#email").text(usuario.email);
+			$("#address").text(usuario.address);
+			$("#city").text(usuario.city.name);
+			$("#areacode").text(usuario.areacode);
+			$("#username").text(usuario.username);
+			$("#phone").text(usuario.phone);
+			$("#shippingpreference").text(usuario.shippingpreference);
+			if(usuario.speciality) $("#speciality").text(usuario.speciality.name);
+			if(usuario.creditCard) $("#creditCard").html("Tiene una tarjeta. <a class ='indigo btn waves-effect waves-light' href='/user/addcard'>Cambiar</a>");
+			else $("#creditCard").html("No tiene una tarjeta. <a class ='indigo btn waves-effect waves-light' href='/user/addcard'>Agregar</a>");
+			if($.urlParam('mensaje')){
+				$("#welcome").text("¡Bienvenido "+ usuario.name +"!");
+			}
+			console.log(usuario);
+			$('#loader').hide();
+			$('#info').show();
+		}else{
+			localStorage.removeItem('token');
+			window.location.replace("/login");
 		}
-		console.log(usuario);
-		$('#loader').hide();
-		$('#info').show();
 	});
 });
 
