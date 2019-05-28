@@ -37,6 +37,9 @@ $(document).ready(function(){
 			M.toast({html: '¡Ya se encuentra agregado:  ' + libro.name +'!'});
 		}
 	});
+	$('input[type=radio]').on('click', function(e) { 
+		$('#book').trigger('keyup'); 
+	});
 	$("#book").on("keyup", function(e) {
 		let text = $(this).val();
 		if(text != ""){
@@ -44,6 +47,7 @@ $(document).ready(function(){
 			
 			let success = function(data, status, jqXHR ){
 				console.log(data);
+				agregarB(data);
 			};
 			$.ajax({
 				method: "POST",
@@ -104,4 +108,32 @@ $(document).ready(function(){
 					}
 				}
 		});
+  }
+  
+  function agregarB(encontrados){
+	  $("#libros").html("");
+	  let markup = "";
+	  encontrados.forEach(function(libro){
+		 libros[libro.id] = libro;
+		  markup += `
+		  <div class="libro">
+		    <div class="row">
+		        <div class="imagen col s3"><img class="responsive-img" src="/img/libro.png"></div>
+		        <div class="col s9">
+		            <div class="row">
+		                <div class="col s9">
+		                    <div class="title">Titulo: <span>${libro.name}</span></div>
+		                    <div class="author">Autor: <span>${libro.author.name}</span></div>
+		                    <div class="isbn">ISBN: <span>${libro.isbn}</span></div>
+		                    <div class="descripcion"><a data-balloon-pos="up" data-balloon="${libro.description}" data-balloon-length="large" >Descripción [+]</a></div>
+		                </div>
+		                <div class="col s3"><i name="${libro.id}" class="green-text large material-icons add">add_shopping_cart</i></div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		  `;
+	  });
+	  $("#libros").html(markup);
+	  $('.tooltipped').tooltip();
   }

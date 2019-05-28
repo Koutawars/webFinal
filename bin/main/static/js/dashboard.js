@@ -1,4 +1,4 @@
-var usuario;
+var usuario, libros = [];
 
 $(document).ready(function(){
 	console.log("cargando info...");
@@ -76,8 +76,10 @@ function traerLocalStorage(){
 	if(encontrar != -1){
 		listCart[encontrar].cart.forEach(function(libro){
 			agregarTabla(libro.id, libro.name, libro.cantidad, libro.price);
+			libros.push(libro);
 		});
 	}
+	calcularTotal();
 }
 
 function agregarTabla(id, nombre, cantidad, precio){
@@ -85,7 +87,15 @@ function agregarTabla(id, nombre, cantidad, precio){
 	<tr name ="${id}">
     	<td>${nombre}</td>
     	<td>${cantidad}</td>
-    	<td>${precio}$<i id="delete" class="center red-text right small material-icons modal-trigger btn-del">delete</i></td>
+    	<td>$ ${precio}<i id="delete" class="center red-text right small material-icons modal-trigger btn-del">delete</i></td>
     </tr>`;
 	$("#tabla").append(markup);
+}
+
+function calcularTotal(){
+	let suma = 0;
+	libros.forEach(function(libro){
+		suma += libro.cantidad*libro.price;
+	});
+	$("#total").html(suma);
 }
