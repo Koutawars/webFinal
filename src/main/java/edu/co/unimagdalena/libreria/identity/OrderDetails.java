@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="orderdetails")
 public class OrderDetails {
@@ -17,6 +19,7 @@ public class OrderDetails {
 	private int amount;
 	
 	
+	@JsonIgnoreProperties("details")
 	@ManyToOne
 	@JoinColumn(name = "order_id")
 	private Orden order;

@@ -103,11 +103,27 @@
 			       <div class="right"><b>total: $<span id = "total">1000</span></b></div>
 				 </div>           
 	            <div class="right">
-	              <button class="btn waves-effect waves-light indigo"  type="button" name="action">Confirmar
+	              <button class="btn waves-effect waves-light indigo" id="factura" type="button">Confirmar
 	              </button>
 	            </div>
 	          </div>
 	        </div>
+	        
+        	  <!-- Modal Structure -->
+			  <div id="modal1" class="modal">
+			    <div class="modal-content">
+			      <h4 id="titulo"></h4>
+			      <div class="row">
+			        <div class="input-field col s6">
+			          <input placeholder="Escriba la cantidad" id="cantidad" type="number" class="validate">
+			          <label for="cantidad">Cantidad</label>
+			        </div>
+			      </div>
+			    </div>
+			    <div class="modal-footer">
+			      <a id="editar" class="modal-close waves-effect waves-green btn-flat">Editar</a>
+			    </div>
+			  </div>
 	        </div>
 	  <script type="text/javascript" src="/js/jquery.min.js"></script>
 	  <script type="text/javascript" src="/js/materialize.min.js"></script>

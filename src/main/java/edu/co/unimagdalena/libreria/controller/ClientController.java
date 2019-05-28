@@ -19,10 +19,10 @@ import edu.co.unimagdalena.libreria.repository.CreditCardRepository;
 @RequestMapping("/api/client")
 public class ClientController {
 	@Autowired
-	ClientRepository clientRepository;
+	private ClientRepository clientRepository;
 	
 	@Autowired
-	CreditCardRepository creditCardRepository;
+	private CreditCardRepository creditCardRepository;
 	
 	@GetMapping
 	public ResponseEntity<Client> getClient(HttpServletResponse res) {

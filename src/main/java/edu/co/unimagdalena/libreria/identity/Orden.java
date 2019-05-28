@@ -6,8 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -19,19 +22,32 @@ public class Orden {
 	private String date;
 	private long total;
 	
+	@ManyToOne
+	private Client client;
+	
+	@JsonIgnoreProperties("order")
 	@OneToMany(mappedBy="order")
 	private Set<OrderDetails> details;
 	
 	public Orden() {
 		
 	}
-	
-	public Orden(long id, String date, long total, Set<OrderDetails> details) {
+
+	public Orden(long id, String date, long total, Client client, Set<OrderDetails> details) {
 		super();
 		this.id = id;
 		this.date = date;
 		this.total = total;
+		this.client = client;
 		this.details = details;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public long getId() {

@@ -1,6 +1,7 @@
-var usuario, libros = [];
+var usuario, libros = [], select;
 
 $(document).ready(function(){
+	
 	console.log("cargando info...");
 	$('#loader').show();
 	$('#info').hide();
@@ -8,7 +9,121 @@ $(document).ready(function(){
     $('.tabs').tabs();
     $('.modal').modal();
     $('select').formSelect();
+    $('.modal').modal();
+
     traerLocalStorage();
+    $("html").on('click', '.btn-edit', function(e) {
+    	let id = $(this).parent().parent()[0].getAttribute("name");
+    	let token = localStorage.getItem("token");
+    	let listCart = JSON.parse(localStorage.getItem("listCart"));
+    	let encontrar = -1;
+    	for(let i = 0; i < listCart.length; i++){
+    		if(listCart[i].token == token){
+    			encontrar = i;
+    		}
+    	}
+    	if(encontrar != -1){
+    		let buscar = -1;
+        	for(let i = 0; i < listCart[encontrar].cart.length; i++){
+        		if(listCart[encontrar].cart[i].id == id ){
+        			buscar = i;
+        		}
+        	}
+        	if(buscar != -1){
+        		select = {idUser: encontrar, idLibro: buscar};
+        		$("#titulo").html(listCart[encontrar].cart[buscar].name);
+        		$("#cantidad").val(listCart[encontrar].cart[buscar].cantidad);
+        	}
+    	}
+    	
+    });
+    $("#editar").on('click', function(e) {
+    	let listCart = JSON.parse(localStorage.getItem("listCart"));
+    	let value = $("#cantidad").val();
+	    if(value && value != 0 && value != ""){
+	    	listCart[select.idUser].cart[select.idLibro].cantidad = value;
+	    	libros[listCart[select.idUser].cart[select.idLibro].id] = listCart[select.idUser].cart[select.idLibro];
+			let text = `
+				${value}<i class="center indigo-text right small material-icons modal-trigger btn-edit" href="#modal1">edit</i>
+			`;
+			let children = $("tr[name=" + listCart[select.idUser].cart[select.idLibro].id + "]").children()[1];
+			$(children).html(text);
+			listCart = JSON.stringify(listCart);
+			localStorage.setItem("listCart", listCart);
+			calcularTotal();
+    	}
+    });
+    
+    $("html").on('click', '.btn-del', function(e) {
+    	let id = $(this).parent().parent()[0].getAttribute("name");
+    	$('tr[name=' + id + ']').remove();
+    	let token = localStorage.getItem("token");
+    	let listCart = JSON.parse(localStorage.getItem("listCart"));
+    	let encontrar = -1;
+    	for(let i = 0; i < listCart.length; i++){
+    		if(listCart[i].token == token){
+    			encontrar = i;
+    		}
+    	}
+    	
+    	if(encontrar != -1){
+    		let buscar = -1;
+        	for(let i = 0; i < listCart[encontrar].cart.length; i++){
+        		if(listCart[encontrar].cart[i].id == id ){
+        			buscar = i;
+        		}
+        	}
+        	if(buscar != -1){
+        		listCart[encontrar].cart.splice( buscar, 1);
+    			listCart = JSON.stringify(listCart);
+    			localStorage.setItem("listCart", listCart);
+    			M.toast({html: 'Removido.'});
+        	}
+    	}
+    	
+    });
+    
+    $("#factura").on("click", function(){
+    	let details = [];
+    	let total = calcularTotal();
+    	let temp;
+    	
+    	libros.forEach(function(libro){
+    		temp = {id: null, amount:libro.cantidad, book: libro};
+    		details.push(temp);
+    	});
+    	
+    	let orden = {
+    			id:null,
+    			date: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+    			total,
+    			details
+    	};
+    	
+    	let data = JSON.stringify(orden);
+    	let success = function(data, status, jqXHR){
+    		console.log(data);
+    	};
+    	
+		$.ajax({
+			method: "POST",
+			url: "/api/orden/add",
+			beforeSend: function (xhr) {
+			    xhr.setRequestHeader ("Authorization", localStorage.getItem("token"));
+			},
+			data,
+			contentType: "application/json",
+			datatype: "JSON",
+			success,
+			error: function(jqXHR , status, e){
+				M.toast({html: 'Error al buscar status: '+jqXHR.status});
+				console.log(jqXHR);
+			}
+		});
+    	
+    });
+    
+    
 	$.ajax({
 		method: "GET",
 		url: "/api/client",
@@ -31,7 +146,6 @@ $(document).ready(function(){
 				}
 			}
 	}).then(function(){
-
 		if(usuario.username){
 			$(".name").text(usuario.name);
 			$(".lastname").text(usuario.lastname);
@@ -55,6 +169,8 @@ $(document).ready(function(){
 			window.location.replace("/login");
 		}
 	});
+	
+	
 });
 
 $.urlParam = function(name){
@@ -76,7 +192,7 @@ function traerLocalStorage(){
 	if(encontrar != -1){
 		listCart[encontrar].cart.forEach(function(libro){
 			agregarTabla(libro.id, libro.name, libro.cantidad, libro.price);
-			libros.push(libro);
+			libros[libro.id] = libro;
 		});
 	}
 	calcularTotal();
@@ -86,8 +202,8 @@ function agregarTabla(id, nombre, cantidad, precio){
 	let markup =`
 	<tr name ="${id}">
     	<td>${nombre}</td>
-    	<td>${cantidad}</td>
-    	<td>$ ${precio}<i id="delete" class="center red-text right small material-icons modal-trigger btn-del">delete</i></td>
+    	<td>${cantidad}<i class="center indigo-text right small material-icons modal-trigger btn-edit" href="#modal1">edit</i></td>
+    	<td>$ ${precio}<i class="center red-text right small material-icons btn-del">delete</i></td>
     </tr>`;
 	$("#tabla").append(markup);
 }
@@ -98,4 +214,5 @@ function calcularTotal(){
 		suma += libro.cantidad*libro.price;
 	});
 	$("#total").html(suma);
+	return suma;
 }

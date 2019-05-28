@@ -112,9 +112,17 @@ $(document).ready(function(){
   
   function agregarB(encontrados){
 	  $("#libros").html("");
-	  let markup = "";
+	  let markup = "", descrip;
 	  encontrados.forEach(function(libro){
 		 libros[libro.id] = libro;
+		 descrip = ` Categoria: `;
+		 libro.category.forEach(function(cat){
+			 descrip += cat.name + " ";
+		 });
+		 descrip += `
+		 Especialidad: ${libro.speciality.name}
+		 Editorial: ${libro.editorial.name}
+		 Descripción: ${libro.description}`;
 		  markup += `
 		  <div class="libro">
 		    <div class="row">
@@ -125,7 +133,7 @@ $(document).ready(function(){
 		                    <div class="title">Titulo: <span>${libro.name}</span></div>
 		                    <div class="author">Autor: <span>${libro.author.name}</span></div>
 		                    <div class="isbn">ISBN: <span>${libro.isbn}</span></div>
-		                    <div class="descripcion"><a data-balloon-pos="up" data-balloon="${libro.description}" data-balloon-length="large" >Descripción [+]</a></div>
+		                    <div class="descripcion"><a data-balloon-pos="up" data-balloon="${descrip}" data-balloon-length="large" >Descripción [+]</a></div>
 		                </div>
 		                <div class="col s3"><i name="${libro.id}" class="green-text large material-icons add">add_shopping_cart</i></div>
 		            </div>
