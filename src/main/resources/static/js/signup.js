@@ -28,7 +28,7 @@ $(document).ready(function(){
 		let address = $("#address").val();
 		if(address)address = address.trim();
 		let speciality = $("#speciality").val();
-		if(speciality == ''){
+		if(speciality == '' || !speciality){
 			speciality = null;
 		}else{
 			value = speciality.trim();
@@ -37,6 +37,7 @@ $(document).ready(function(){
 		}
 		let shippingpreference = $("#forma").val();
 		if(shippingpreference) shippingpreference = shippingpreference.trim();
+		else shippingpreference = "ninguna";
 		if(password != password2){
 			  M.toast({html: 'Tiene que ser igual la contraseña.'});
 		}else if(name != "" && lastname != "" && email != "" && password != "" && phone != ""  && city != "" && address != "" && shippingpreference != "" ){
