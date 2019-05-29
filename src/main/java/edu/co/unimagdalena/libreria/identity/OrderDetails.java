@@ -18,7 +18,6 @@ public class OrderDetails {
 	private long id;
 	private int amount;
 	
-	
 	@JsonIgnoreProperties("details")
 	@ManyToOne
 	@JoinColumn(name = "order_id")

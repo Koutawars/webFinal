@@ -84,25 +84,42 @@ $(document).ready(function(){
     });
     
     $("#factura").on("click", function(){
-    	let details = [];
+		M.toast({html: 'Enviando...'});
     	let total = calcularTotal();
-    	let temp;
-    	
+    	let detail, details = [];
+
     	libros.forEach(function(libro){
-    		temp = {id: null, amount:libro.cantidad, book: libro};
-    		details.push(temp);
+    		detail = {amount:libro.cantidad, book: libro};
+    		details.push(detail);
     	});
-    	
+
     	let orden = {
-    			id:null,
     			date: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
     			total,
     			details
     	};
     	
     	let data = JSON.stringify(orden);
+    	
     	let success = function(data, status, jqXHR){
-    		console.log(data);
+        	let token = localStorage.getItem("token");
+        	let listCart = JSON.parse(localStorage.getItem("listCart"));
+        	let encontrar = -1;
+        	for(let i = 0; i < listCart.length; i++){
+        		if(listCart[i].token == token){
+        			encontrar = i;
+        		}
+        	}
+        	if(encontrar != -1){
+        		listCart.splice(encontrar, 1);
+    			listCart = JSON.stringify(listCart);
+    			localStorage.setItem("listCart", listCart);
+        	}
+			libros = [];
+			$("#tabla").html("");
+			calcularTotal();
+			M.toast({html: '¡Compra exitosa!'});
+        	
     	};
     	
 		$.ajax({
@@ -116,8 +133,12 @@ $(document).ready(function(){
 			datatype: "JSON",
 			success,
 			error: function(jqXHR , status, e){
-				M.toast({html: 'Error al buscar status: '+jqXHR.status});
-				console.log(jqXHR);
+				if(jqXHR.status == 402){
+    				M.toast({html: jqXHR.getResponseHeader("errorMessage")});
+				}else{
+    				M.toast({html: 'Error al buscar status: '+jqXHR.status});
+    				console.log(jqXHR);
+				}
 			}
 		});
     	

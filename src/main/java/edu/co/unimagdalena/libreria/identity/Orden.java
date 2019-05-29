@@ -1,6 +1,6 @@
 package edu.co.unimagdalena.libreria.identity;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,13 +27,13 @@ public class Orden {
 	
 	@JsonIgnoreProperties("order")
 	@OneToMany(mappedBy="order")
-	private Set<OrderDetails> details;
+	private List<OrderDetails> details;
 	
 	public Orden() {
 		
 	}
 
-	public Orden(long id, String date, long total, Client client, Set<OrderDetails> details) {
+	public Orden(long id, String date, long total, Client client, List<OrderDetails> details) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -74,11 +74,11 @@ public class Orden {
 		this.total = total;
 	}
 
-	public Set<OrderDetails> getDetails() {
+	public List<OrderDetails> getDetails() {
 		return details;
 	}
 
-	public void setDetails(Set<OrderDetails> details) {
+	public void setDetails(List<OrderDetails> details) {
 		this.details = details;
 	}
 	
