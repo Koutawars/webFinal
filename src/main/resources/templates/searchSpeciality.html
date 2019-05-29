@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"  xmlns:th="http://www.thymeleaf.org">
 	<head>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,6 @@
 		<div class="container">
     		<div class="row">
         		<div class="col s6">
-                	<h6 class="center">Mejores vendidos</h6>
                 	<div class="carousel carousel-slider center">
                 		<div id ="recomendados">
 		                    <div class="carousel-item white black-text">
@@ -51,8 +50,18 @@
 			                <input value="isbn" class="with-gap" name="group3" type="radio" />
 			                <span>ISBN</span>
 		                </label>
-	            	</p>    
+	            	</p>
+	            	
             		<div class="row">
+            			<div class="input-field col s12">
+				       		<select id="speciality">
+				        		<option value="" disabled selected>Busque por especialidad</option>
+	  							<th:block th:each="speciality : ${specialitys}">
+				            		<option th:selected = "${speciality.id} == 0 ? 'selected':'' " th:value="${speciality.id}" th:text="${speciality.name}"></option>
+	  							</th:block>
+				       		</select>
+				       		<label>Especialidad</label>
+				    	</div>
                    		<div class="input-field col s12">
                       		<input value="" id="book" type="text" class="validate">
                       		<label class="active" for="book">¿Que desea Buscar?</label>

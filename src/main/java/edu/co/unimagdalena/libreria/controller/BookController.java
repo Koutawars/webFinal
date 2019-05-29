@@ -98,4 +98,49 @@ public class BookController {
 		}
 		return ResponseEntity.ok(retornar);
 	}
+	
+	
+	@PostMapping("/search/nameSpeciality")
+	ResponseEntity<List<Book>> searchByNameSpeciality(@RequestBody List<String> search){
+		List <Book> retornar = new ArrayList<>(); 
+		String name = search.get(0);
+		Long speciality = Long.parseLong(search.get(1));
+	
+		try {
+			retornar = bookRepository.findByNameContainingAndSpeciality_id(name, speciality);
+			retornar = retornar.stream().filter(x -> x.getStock() > 0 ).collect(Collectors.toList());
+		}catch(Exception e) {
+			return ResponseEntity.status(409).build();
+		}
+		return ResponseEntity.ok(retornar);
+	}
+	
+
+	@PostMapping("/search/isbnSpeciality")
+	ResponseEntity<List<Book>> searchByIsbnSpeciality(@RequestBody List<String> search){
+		List <Book> retornar = new ArrayList<>();
+		String isbn = search.get(0);
+		Long speciality = Long.parseLong(search.get(1));
+		try {
+			retornar = bookRepository.findByIsbnContainingAndSpeciality_id(isbn, speciality);
+			retornar = retornar.stream().filter(x -> x.getStock() > 0 ).collect(Collectors.toList());
+		}catch(Exception e) {
+			return ResponseEntity.status(409).build();
+		}
+		return ResponseEntity.ok(retornar);
+	}
+	
+	@PostMapping("/search/authorSpeciality")
+	ResponseEntity<List<Book>> searchByAuthorNameSpeciality(@RequestBody List<String> search){
+		List <Book> retornar = new ArrayList<>(); 
+		String name = search.get(0);
+		Long speciality = Long.parseLong(search.get(1));
+		try {
+			retornar = bookRepository.findByAuthor_NameContainingAndSpeciality_id(name, speciality);
+			retornar = retornar.stream().filter(x -> x.getStock() > 0 ).collect(Collectors.toList());
+		}catch(Exception e) {
+			return ResponseEntity.status(409).build();
+		}
+		return ResponseEntity.ok(retornar);
+	}
 }

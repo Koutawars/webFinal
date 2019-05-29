@@ -8,7 +8,11 @@ class UsuarioCarro {
 }
 
 $(document).ready(function(){  
+	 $('select').formSelect();
 	traerRecomendado();
+	$( "#speciality" ).change(function() {
+		$('#book').trigger('keyup'); 
+	});
 	$("html").on('click', '.add', function(e) {
 		e.preventDefault();
 		let id = $(this)[0].getAttribute("name");
@@ -42,8 +46,12 @@ $(document).ready(function(){
 	});
 	$("#book").on("keyup", function(e) {
 		let text = $(this).val();
+		let search = [];
+		search.push(text);
+		search.push($("#speciality").val());
+		let json = JSON.stringify(search);
 		if(text != ""){
-			let url = "/api/book/search/" + $('input[type=radio]:checked').val();
+			let url = "/api/book/search/" + $('input[type=radio]:checked').val() + "Speciality";
 			
 			let success = function(data, status, jqXHR ){
 				console.log(data);
@@ -55,7 +63,7 @@ $(document).ready(function(){
 				beforeSend: function (xhr) {
 				    xhr.setRequestHeader ("Authorization", localStorage.getItem("token"));
 				},
-				data: text,
+				data: json,
 				contentType: "application/json",
 				datatype: "JSON",
 				success,
@@ -71,7 +79,7 @@ $(document).ready(function(){
   function traerRecomendado(){
 		$.ajax({
 			method: "GET",
-			url: "/api/book/recommends",
+			url: "/api/book/mySpeciality",
 			beforeSend: function (xhr) {
 			    xhr.setRequestHeader ("Authorization", localStorage.getItem("token"));
 			},
